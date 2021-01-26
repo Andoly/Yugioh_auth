@@ -13,12 +13,10 @@ export default function reducer(state = INITIAL_STATE, action) {
       } else {
         state.user = null;
       }
-      console.log("REDUCER_USER", state.user);
       return state;
 
     case SET_TOKEN:
       state.token = action.payload.token;
-      console.log("REDUCER_TOKEN", state.token);
       return state;
 
     default:

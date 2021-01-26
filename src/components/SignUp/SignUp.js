@@ -4,6 +4,7 @@ import api from "../../services/api";
 import { useDispatch } from "react-redux";
 import { setUser, setToken } from "../../store/auth/actions";
 import { useHistory } from "react-router-dom";
+import Logo from "../../img/logo.webp";
 
 const SignUp = () => {
   const [form, setForm] = useState({
@@ -85,6 +86,7 @@ const SignUp = () => {
   return (
     <Fragment>
       <S.Form onSubmit={handleOnSubmit}>
+        <S.Imagem src={Logo} alt="YuGiOh" />
         <S.Input
           placeholder="Name"
           type="text"

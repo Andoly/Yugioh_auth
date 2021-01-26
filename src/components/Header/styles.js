@@ -18,8 +18,7 @@ export const Imagem = styled.img`
 export const ContainerProfile = styled.div`
   position: relative;
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
   flex: 1;
 `;
@@ -30,6 +29,9 @@ export const Auth = styled.button`
   border: transparent;
   font-size: 18px;
   cursor: pointer;
+  :hover {
+    color: #fff;
+  }
 `;
 export const User = styled.div`
   color: #98ff00;
@@ -37,6 +39,19 @@ export const User = styled.div`
   flex-direction: column;
 `;
 export const RestrictedHeader = styled.div`
+  color: #98ff00;
+  cursor: pointer;
+  display: flex;
+  :hover {
+    color: #fff;
+  }
+`;
+export const UserProfile = styled.div`
+  padding-left: 10px;
+`;
+export const LogoutHeader = styled.div`
+  text-align: end;
+  font-size: 18px;
   color: #00a8ff;
   cursor: pointer;
   :hover {

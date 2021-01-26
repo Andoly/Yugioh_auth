@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Logo from "../../img/logo.webp";
 import { setResetToken } from "../../store/auth/actions";
+import { FavoriteBorder as Favorite } from "@styled-icons/material/FavoriteBorder";
 
 const Header = () => {
   const userData = useSelector(({ auth }) => auth.name);
@@ -13,7 +14,6 @@ const Header = () => {
   const [status, setStatus] = useState(false);
 
   useEffect(() => {
-    console.log("Status", status);
     if (userData) {
       setStatus(true);
     }
@@ -35,10 +35,13 @@ const Header = () => {
             </Link>
           ) : (
             <S.User>
-              {userData}
-              <S.RestrictedHeader onClick={handleLogout}>
-                Logout
+              <S.RestrictedHeader>
+                <Link to="/profile">
+                  <Favorite size={28} color={"#98ff00"} />
+                </Link>
+                <S.UserProfile>{userData}</S.UserProfile>
               </S.RestrictedHeader>
+              <S.LogoutHeader onClick={handleLogout}>Logout</S.LogoutHeader>
             </S.User>
           )}
         </S.ContainerProfile>
