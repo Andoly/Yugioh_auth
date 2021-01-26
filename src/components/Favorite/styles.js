@@ -5,19 +5,16 @@ export const Container = styled.div`
   position: relative;
   min-height: 100vh;
 `;
-
 export const Title = styled.p`
   color: #070b28;
   font-size: 20px;
   font-weight: 700;
 `;
-
 export const Wishlist = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
-
 export const GridFavorite = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -29,7 +26,10 @@ export const GridFavorite = styled.div`
 export const CardInGrid = styled.img`
   width: 240px;
   height: auto;
-  cursor: pointer
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 export const Empty = styled.img`
