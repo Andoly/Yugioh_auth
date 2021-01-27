@@ -9,6 +9,9 @@ export const Container = styled.div`
 export const Main = styled.div`
   position: absolute;
   margin: 20px 120px;
+  @media (max-width: 600px) {
+    margin: 10px 80px;
+  }
 `;
 
 export const Title = styled.p`
