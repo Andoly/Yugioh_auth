@@ -36,7 +36,7 @@ const Header = () => {
           ) : (
             <S.User>
               <S.RestrictedHeader>
-                <Link to="/profile">
+                <Link to="/">
                   <Favorite size={28} color={"#98ff00"} />
                 </Link>
                 <S.UserProfile>{userData}</S.UserProfile>

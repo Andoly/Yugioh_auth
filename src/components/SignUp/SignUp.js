@@ -3,7 +3,7 @@ import * as S from "./styles";
 import api from "../../services/api";
 import { useDispatch } from "react-redux";
 import { setUser, setToken } from "../../store/auth/actions";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import Logo from "../../img/logo.webp";
 
 const SignUp = () => {
@@ -76,7 +76,7 @@ const SignUp = () => {
       const responseToken = r.data.data.data.token;
       dispatch(setUser({ user: responseUser }));
       dispatch(setToken({ token: responseToken }));
-      history.push("/profile");
+      history.push("/");
     } catch (error) {
       console.log("error:", error);
     }
@@ -116,6 +116,10 @@ const SignUp = () => {
           onChange={handleOnChange}
         ></S.Input>
         <S.Button type="submit">Register</S.Button>
+        <S.Account>
+          <span>Já possui conta? </span>
+          <Link to="/signin">Entrar</Link>
+        </S.Account>
       </S.Form>
     </Fragment>
   );

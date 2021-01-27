@@ -2,74 +2,59 @@ import React, { Fragment, useState, useEffect } from "react";
 import * as S from "./styles";
 import api from "../../services/api";
 import Empty from "../../img/Empty.webp";
-import { FavoriteBorder as FavoriteButton } from "@styled-icons/material/FavoriteBorder";
 import { useSelector } from "react-redux";
 
 const Favorite = () => {
-  const userFavorite = useSelector(({ auth }) => auth.favorites);
+  // const userFavorite = useSelector(({ auth }) => auth.favorites);
   const userToken = useSelector(({ auth }) => auth.token);
   const [listFavorite, setListFavorite] = useState([]);
-  const [idCard, setIdCard] = useState();
 
   const responseFavorite = async () => {
+    // console.log("LocalStorage Fav", userFavorite);
     const response = await api.get("/favorites", {
       headers: { Authorization: "Bearer " + userToken },
     });
     if (response.data) {
       const favoriteList = response.data.data.favorites;
-      console.log("response.Favorite:", favoriteList);
-      const cardMap = favoriteList.map(
-        (card) => `{_id: ${card._id}, card_images: ${card.card_images}}`
-      );
-      const cardId = favoriteList.map((card) => card._id);
-      // const cardReduce = cardMap.reduce(function (acm, current) {
-      //   return acm.concat(current);
-      // }, []);
+      // console.log("response.Favorite:", favoriteList);
+      const cardMap = favoriteList.map((card) => ({
+        _id: card._id,
+        card_images: card.card_images,
+      }));
       setListFavorite(cardMap);
-      setIdCard(cardId);
-      console.log("CARD MAP:", cardMap);
-      // console.log("CARD REDUCE:", cardReduce);
-      console.log("CARD ID:", cardId);
+      // console.log("CARD MAP:", cardMap);
     }
     return { error: false, data: response.data };
   };
-  // useEffect(() => {}, [listFavorite, userFavorite]);
 
-  const removeFavorite = (event, id) => {
-    event.target.defaultPrevent();
+  useEffect(() => {
+    const fetch = () => {
+      responseFavorite()
+     }
+     fetch()
+  },[]);
 
-    const response = api.delete(
-      `/favorites/${id}`,
-      { id },
-      { headers: { Authorization: "Bearer " + userToken } }
-    );
-    if (response.data) {
-      const favoriteList = response.data.data.favorites;
-      console.log("Novo lista:", favoriteList);
-    }
+  const removeFavorite = async (event, id) => {
+    event.preventDefault();
+    api.defaults.headers.common["Authorization"] = `Bearer ${userToken}`;
+    await api.delete(`/favorites/${id}`);
+    responseFavorite();
   };
-  console.log('Lista interna',listFavorite)
 
   return (
     <Fragment>
       <S.Container>
-        <S.Title>Lista de favoritos</S.Title>
-        <FavoriteButton
-          size={35}
-          onClick={responseFavorite}
-          color={"#98ff00"}
-        />
+        <S.Title>Lista de favoritos ({listFavorite.length})</S.Title>
         <S.Wishlist>
           {listFavorite.length === 0 ? (
             <S.Empty src={Empty} alt="Lista vazia" />
           ) : (
             <S.GridFavorite>
-              {JSON.parse(listFavorite).map((item) => {
-                console.log('id:',item._id)
+              {listFavorite.map((item) => {
                 return (
                   <S.CardInGrid
                     key={item._id}
-                    onDoubleClick={removeFavorite}
+                    onDoubleClick={(e) => removeFavorite(e, item._id)}
                     src={item.card_images}
                     alt="Card"
                   />

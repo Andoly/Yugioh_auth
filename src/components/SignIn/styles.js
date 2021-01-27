@@ -32,12 +32,17 @@ export const Imagem = styled.img`
   width: 150px;
   align-self: center;
 `;
+export const Account = styled.div`
+  font-size: 16px;
+  color: #f062c0;
+`;
 export const Button = styled.button`
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   width: 220px;
   height: 29px;
+  margin-bottom: 20px;
   border-color: transparent;
   border-radius: 5px;
   color: #fff;

@@ -5,11 +5,11 @@ import { PersistGate } from "redux-persist/integration/react";
 import "./index.css";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Profile from "./components/Profile/Profile";
-import Learn from "./components/Learn/Learn";
 import NotFound from "./components/NotFound/NotFound";
 import SignIn from "./Pages/Auth/SignIn";
 import SignUp from "./Pages/Auth/SignUp";
+import Favorite from "./Pages/Favorite/Favotire";
+import Home from "./Pages/Home/Home";
 
 import { store, persisetdStore } from "./store/index";
 
@@ -19,10 +19,10 @@ const App = () => (
       <BrowserRouter>
         <Fragment>          
           <Switch>
-            <Route path="/" exact component={Learn} />
+            <Route path="/" exact component={Home} />
             <Route path="/signin" exact component={SignIn} />
             <Route path="/signup" component={SignUp} />
-            <Route path="/profile" component={Profile} />
+            <Route path="/favorite" component={Favorite} />
             <Route path='*' component={NotFound}/>
           </Switch>
         </Fragment>

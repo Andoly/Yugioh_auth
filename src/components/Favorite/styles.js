@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   margin: 20px 120px;
   position: relative;
-  min-height: 100vh;
+  min-height: 80vh;
 `;
 export const Title = styled.p`
   color: #070b28;
