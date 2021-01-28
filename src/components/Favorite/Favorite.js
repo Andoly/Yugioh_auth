@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, useCallback } from "react";
 import * as S from "./styles";
 import api from "../../services/api";
 import Empty from "../../img/Empty.webp";
@@ -9,7 +9,7 @@ const Favorite = () => {
   const userToken = useSelector(({ auth }) => auth.token);
   const [listFavorite, setListFavorite] = useState([]);
 
-  const responseFavorite = async () => {
+  const responseFavorite = useCallback(async () => {
     // console.log("LocalStorage Fav", userFavorite);
     const response = await api.get("/favorites", {
       headers: { Authorization: "Bearer " + userToken },
@@ -25,14 +25,14 @@ const Favorite = () => {
       // console.log("CARD MAP:", cardMap);
     }
     return { error: false, data: response.data };
-  };
+  }, [userToken])
 
   useEffect(() => {
     const fetch = () => {
       responseFavorite()
      }
      fetch()
-  },[]);
+  },[responseFavorite]);
 
   const removeFavorite = async (event, id) => {
     event.preventDefault();
