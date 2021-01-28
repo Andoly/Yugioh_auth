@@ -3,6 +3,7 @@ import Loading from "../Loading/Loading";
 import * as S from "./styles";
 import Slider from "../Slider/Slider";
 import api from "../../services/api";
+// import { FavoriteBorder as Favorite } from "@styled-icons/material/FavoriteBorder";
 
 const settings = {
   dots: true,

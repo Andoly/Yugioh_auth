@@ -28,7 +28,9 @@ const Header = () => {
   return (
     <S.Container>
       <S.SubContainer>
-        <S.Imagem src={Logo} alt="YuGiOh" />
+        <Link to="/">
+          <S.Imagem src={Logo} alt="YuGiOh" />
+        </Link>
         <S.ContainerProfile>
           {!status ? (
             <Link to="/signin">
@@ -37,7 +39,7 @@ const Header = () => {
           ) : (
             <S.User>
               <S.RestrictedHeader>
-                <Link to="/">
+                <Link to="/favorite">
                   <Favorite size={28} color={"#98ff00"} />
                 </Link>
                 <S.UserProfile>{userData}</S.UserProfile>

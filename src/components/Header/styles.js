@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background: rgb(7, 11, 40);
-  height: 100px;
+  height: 90px;
 `;
 export const SubContainer = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ export const SubContainer = styled.div`
 export const Imagem = styled.img`
   position: relative;
   width: 150px;
-  align-self: center;
+  margin-top: 20px;
 `;
 
 export const ContainerProfile = styled.div`

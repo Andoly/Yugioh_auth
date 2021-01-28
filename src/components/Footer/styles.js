@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Footer = styled.div`
-  height: 100px;
+  height: 80px;
   background-color: rgb(7,11,40);
 `
 export const PosicionaTitle = styled.div`
