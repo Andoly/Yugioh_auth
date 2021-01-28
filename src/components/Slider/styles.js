@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Wrapper = styled.section`
   .slick-slider {
@@ -56,7 +56,7 @@ export const Wrapper = styled.section`
   .slick-track:after {
     display: table;
 
-    content: "";
+    content: '';
   }
   .slick-track:after {
     clear: both;
@@ -72,7 +72,7 @@ export const Wrapper = styled.section`
     height: 100%;
     min-height: 1px;
   }
-  [dir="rtl"] .slick-slide {
+  [dir='rtl'] .slick-slide {
     float: right;
   }
   .slick-slide img {
@@ -100,4 +100,4 @@ export const Wrapper = styled.section`
   .slick-arrow.slick-hidden {
     display: none;
   }
-`;
+`

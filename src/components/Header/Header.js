@@ -21,6 +21,7 @@ const Header = () => {
 
   const handleLogout = () => {
     dispatch(setResetToken(""));
+    setStatus(false);
     history.push("/");
   };
 

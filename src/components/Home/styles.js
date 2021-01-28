@@ -7,7 +7,7 @@ export const Container = styled.div`
 `;
 
 export const Main = styled.div`
-  position: absolute;
+  position: relative;
   margin: 20px 120px;
   @media (max-width: 600px) {
     margin: 10px 80px;
@@ -16,6 +16,7 @@ export const Main = styled.div`
 
 export const Title = styled.p`
   color: #fff;
-  font-size: 18px;
+  padding-top: 35px;
+  font-size: 22px;
   font-weight: 600;
 `;
